@@ -1,0 +1,199 @@
+$text-color = #fff
+$bg-color = #262c32
+$footer-color = #262c32
+
+body
+	margin 0
+	font-family "proxima-nova"
+	color $text-color
+	background-color $bg-color
+	text-align center
+	
+
+/*
+ * Grid
+ * ====
+ */
+$xs = 576px
+$sm = 768px
+$md = 992px
+$lg = 1200px
+
+.grid-container
+	width 100%
+	max-width 1200px
+	margin 0 auto
+
+.grid-container *
+	box-sizing: border-box
+
+.clearfix:after {
+	visibility: hidden;
+	display: block;
+	font-size: 0;
+	content: " ";
+	clear: both;
+	height: 0;
+	}
+* html .clearfix             { zoom: 1; } /* IE6 */
+*:first-child+html .clearfix { zoom: 1; } /* IE7 */
+
+.row
+	list-style none
+	margin 0 -15px
+	clearfix()
+
+.col
+	float left
+	position relative
+	padding 0 15px 15px
+	img
+		max-width 100%
+		height auto
+
+grid(class = 'xs', columns = 12)
+	for colCount in (1 .. columns)
+		percentWidth = (1% * ((colCount / columns) * 100))
+		.col-{class}-{colCount}
+			width percentWidth
+			float left
+
+/* Base Grid */
+grid()
+
+/* Extra Small Size */
+@media (min-width: $xs)
+	grid('sm')
+
+/* Medium Size */
+@media (min-width: $sm)
+	grid('md')
+
+/* Large Size */
+@media (min-width: $md)
+	grid('lg')
+
+/*
+ * Helpers
+ * =======
+ */
+.show-sm
+	display none
+.show-md
+	display block
+@media (max-width: $sm)
+	.show-sm
+		display block
+	.show-md
+		display none
+		color #FFFFFF
+
+// General Styles
+a
+	text-decoration none
+	display inline-block
+
+ul
+	list-style none
+	padding 0
+.pull-left
+	float left
+.pull-right
+	float right
+
+.flex-row
+	display flex
+	flex-direction row
+	flex-wrap wrap
+	& > .wrapper
+		flex-grow 1
+		width 50%
+		
+.container
+	width 100%
+	max-width 1200px
+	margin-right auto
+	margin-left auto
+	padding-left 20px
+	padding-right 20px
+	
+main
+	padding 60px 0 0
+	.logo
+		margin-bottom 10px
+		
+	h1
+		font-weight 600
+		margin 0 0 10px
+		font-size 24px
+		letter-spacing 7px
+	.power
+		font-size 9px
+		font-weight 100
+		letter-spacing 2px
+		color rgba(255,255,255,.9)
+		span
+			font-size 12px
+	.action
+		margin 72px 0
+		line-height 110px
+		letter-spacing -6px
+		.strong
+			margin 0
+			font-size 105px
+			font-weight 900
+		
+	.input-container
+		text-align left
+		display flex
+		justify-content space-between
+		max-width 730px
+		margin 0 auto
+		.input-group
+			width 100%
+			margin-right 56px
+			color #596775
+			label
+				display block
+				font-size 12px
+				letter-spacing 1px
+				color inherit
+			input
+				display block
+				border none
+				border-bottom 1px solid #596775
+				color inherit
+				padding 5px 0 6px
+				width 100%
+				background-color transparent
+				letter-spacing 0.3px
+				outline none
+				&::-webkit-input-placeholder
+					color white
+		.website
+			color white
+			label
+				color inherit
+	.cta-btn
+		color $text-color
+		margin-top 30px
+		padding 20px 28px
+		border 2px solid white
+		border-radius 33px
+		font-size 19px
+		letter-spacing 5px
+		.fa-fw
+			font-size 16px
+			margin-left 3px
+
+footer
+	width 100%
+	background-color #20252b
+	position fixed
+	bottom 0
+	left 0
+	right 0
+	padding 20px 0
+	small
+		color rgba(255,255,255,0.4)
+		font-weight 100

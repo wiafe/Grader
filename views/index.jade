@@ -1,0 +1,26 @@
+extends layout
+
+block content
+	main
+		.container
+			img(src="/img/logo@2x.png").logo
+			h1= title
+			small.power Powered by <span>RAINMAKER</span>
+
+			.action
+				h2.strong IS YOUR WEBSITE
+				h2.strong LOSING YOU SUPPORT?
+
+			.input-container
+				.input-group
+					label FIRST NAME*
+					input(type="text", name="name")
+				.input-group.website
+					label WEBSITE*
+					input(type="text", name="name", placeholder="www.oxfamamerica.org")
+				.input-group
+					label EMAIL*
+					input(type="text", name="name")
+			a(href="#").cta-btn GET STARTED <i class="fa fa-fw fa-chevron-right"></i>
+	footer
+		small Copyright © 2015 Rainmaker Software, Inc. All Rights reserved.
